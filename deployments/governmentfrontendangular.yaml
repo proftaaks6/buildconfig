@@ -1,0 +1,58 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: "governmentadminangular"
+spec:
+  type: LoadBalancer
+  selector:
+    app: "governmentadminangular"
+  ports:
+    - protocol: "TCP"
+      port: 80
+      targetPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: governmentadminangular
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: governmentadminangular
+    spec:
+      containers:
+        - name: governmentadminangular
+          image: "carlotheunissen/governmentadminangular:latest"
+          imagePullPolicy: Always
+          env:
+            - name: environment
+              value: "production"
+          resources:
+            requests:
+              memory: "40Mi"
+              cpu: 0.1
+            limits:
+              memory: "500Mi"
+              cpu: 0.5
+          ports:
+            - name: http
+              containerPort: 80
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: governmentadminangular
+spec:
+  #scaleRef:
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: governmentadminangular
+    #subresource: scale
+  minReplicas: 1
+  maxReplicas: 5
+  #cpuUtilization:
+    #targetPercentage: 70
+  targetCPUUtilizationPercentage: 40
