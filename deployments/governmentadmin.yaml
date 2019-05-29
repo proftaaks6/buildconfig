@@ -15,7 +15,7 @@ kind: Deployment
 metadata:
   name: governmentadmin
 spec:
-  replicas: 4
+  replicas: 1
   template:
     metadata:
       labels:
