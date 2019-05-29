@@ -89,7 +89,7 @@ spec:
   - metadata:
       name: rabbitmq-persistent-storage
       annotations:
-        volume.beta.kubernetes.io/storage-class: standard
+        volume.beta.kubernetes.io/storage-class: local-path
     spec:
       accessModes: ["ReadWriteOnce"]
       resources:
