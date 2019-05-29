@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: "governmentadminangular"
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: "governmentadminangular"
   ports:
