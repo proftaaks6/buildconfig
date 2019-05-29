@@ -35,8 +35,8 @@ spec:
               memory: "330Mi"
               cpu: "50m"
             limits:
-              memory: "500Mi"
-              cpu: 0.5
+              memory: "600Mi"
+              cpu: "300m"
           ports:
             - name: http
               containerPort: 8080
@@ -71,7 +71,7 @@ spec:
     name: driversystem
     #subresource: scale
   minReplicas: 1
-  maxReplicas: 5
+  maxReplicas: 1
   #cpuUtilization:
     #targetPercentage: 70
-  targetCPUUtilizationPercentage: 40
+  targetCPUUtilizationPercentage: 80
