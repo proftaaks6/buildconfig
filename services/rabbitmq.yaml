@@ -88,10 +88,9 @@ spec:
   volumeClaimTemplates:
   - metadata:
       name: rabbitmq-persistent-storage
-      annotations:
-        volume.beta.kubernetes.io/storage-class: local-path
     spec:
-      accessModes: ["ReadWriteOnce"]
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: local-path
       resources:
         requests:
-          storage: 2Gi
+          storage: 1Gi
