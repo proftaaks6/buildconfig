@@ -41,6 +41,19 @@ spec:
           ports:
             - name: http
               containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: usersystem/deploy/v1/health/check
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 120
+            periodSeconds: 15
+            timeoutSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: usersystem/deploy/v1/health/check
+              port: 80
+              scheme: HTTP
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
