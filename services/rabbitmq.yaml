@@ -65,9 +65,9 @@ spec:
           - name: RABBITMQ_ERLANG_COOKIE
             value: erlang-cookie-placeholder
           - name: RABBITMQ_DEFAULT_USER
-            value: admin
+            value: guest
           - name: RABBITMQ_DEFAULT_PASS
-            value: admin
+            value: guest
           - name: AUTOCLUSTER_TYPE
             value: "k8s"
           - name: AUTOCLUSTER_DELAY
