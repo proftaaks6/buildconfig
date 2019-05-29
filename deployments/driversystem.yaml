@@ -25,13 +25,15 @@ spec:
         - name: driversystem
           image: "carlotheunissen/driversystem:latest"
           imagePullPolicy: Always
+          hostNetwork: true
+          dnsPolicy: ClusterFirstWithHostNet
           env:
             - name: environment
               value: "production"
           resources:
             requests:
-              memory: "40Mi"
-              cpu: 0.1
+              memory: "330Mi"
+              cpu: "50m"
             limits:
               memory: "500Mi"
               cpu: 0.5

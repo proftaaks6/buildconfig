@@ -23,6 +23,8 @@ spec:
     spec:
       containers:
         - name: usersystem
+          hostNetwork: true
+          dnsPolicy: ClusterFirstWithHostNet
           image: "carlotheunissen/usersystem:latest"
           imagePullPolicy: Always
           env:

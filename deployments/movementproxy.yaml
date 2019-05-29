@@ -23,6 +23,8 @@ spec:
     spec:
       containers:
         - name: movementproxy
+          hostNetwork: true
+          dnsPolicy: ClusterFirstWithHostNet
           image: "carlotheunissen/movementproxy:latest"
           imagePullPolicy: Always
           env:
@@ -30,8 +32,8 @@ spec:
               value: "production"
           resources:
             requests:
-              memory: "40Mi"
-              cpu: 0.1
+              memory: "330Mi"
+              cpu: "50m"
             limits:
               memory: "500Mi"
               cpu: 0.5
