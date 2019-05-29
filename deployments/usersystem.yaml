@@ -73,4 +73,4 @@ spec:
   maxReplicas: 5
   #cpuUtilization:
     #targetPercentage: 70
-  targetCPUUtilizationPercentage: 40
+  targetCPUUtilizationPercentage: 80
