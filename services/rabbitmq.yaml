@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: rabbitmq
 spec:
-  clusterIP: LoadBalancer  # We need a headless service to allow the pods to discover each
+  type: LoadBalancer  # We need a headless service to allow the pods to discover each
   ports:           # other during autodiscover phase for cluster creation.
    - name: http    # A ClusterIP will prevent resolving dns requests for other pods
      protocol: TCP # under the same service.
